@@ -1,5 +1,6 @@
 #include "XDWindow.h"
 #include "XDRenderer.h"
+#include "XDDirector.h"
 
 
 LPCTSTR XDWindow::lpszClass = TEXT("GpDoubleBuffer");
@@ -19,24 +20,22 @@ LRESULT CALLBACK XDWindow::WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPAR
 	switch (iMessage) {
 	case WM_CREATE:
 		XDWindow::hWndMain = hWnd;
+		SetTimer(hWnd, 1, 17, (TIMERPROC)XDDirector::Update);
+
 		return 0;
 	case WM_KEYDOWN:
 		switch (wParam) {
 		case VK_LEFT:
 			XDRenderer::ex -= 5;
-			XDRenderer::UpdateScreen();
 			break;
 		case VK_RIGHT:
 			XDRenderer::ex += 5;
-			XDRenderer::UpdateScreen();
 			break;
 		case VK_UP:
 			XDRenderer::ey -= 5;
-			XDRenderer::UpdateScreen();
 			break;
 		case VK_DOWN:
 			XDRenderer::ey += 5;
-			XDRenderer::UpdateScreen();
 			break;
 		}
 		return 0;

@@ -1,5 +1,4 @@
 #pragma once
-
 #include <windows.h>
 
 class XDWindow
@@ -25,6 +24,7 @@ public:
 		hWnd = CreateWindow(XDWindow::lpszClass, XDWindow::lpszClass, WS_OVERLAPPEDWINDOW,
 			CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT,
 			NULL, (HMENU)NULL, hInstance, NULL);
+		
 		ShowWindow(hWnd, nCmdShow);
 
 	}
@@ -49,7 +49,6 @@ private:
 	static HWND hWnd;
 public:
 	static MSG Message;
-
 
 
 };

@@ -1,6 +1,5 @@
 #include "XDRenderer.h"
 
-
 int XDRenderer::ex = 0;
 int XDRenderer::ey = 0;
 Gdiplus::CachedBitmap* XDRenderer::pCBit = nullptr;
@@ -33,5 +32,7 @@ void XDRenderer::UpdateScreen()
 	delete pBit;
 	delete memG;
 	InvalidateRect(XDWindow::hWndMain, NULL, FALSE);
+
+
 }
 
